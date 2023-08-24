@@ -1,0 +1,8 @@
+
+{
+xyce_command:
+"Xyce"
+library_files:
+"loc1",
+"loc2"
+}
