@@ -45,10 +45,10 @@ class xyceSimulator:
             xyce_run_file = (xyce_run+f).replace('  ', ' ').split(' ')
             subprocess.run(xyce_run_file)
 
-def parseFileList(ilist):
-    print("reading file: "+ilist)
+def parseFileList(ilist, wd):
+    print("reading file: "+wd+ilist)
 
-    listDB = pd.read_csv(ilist)
+    listDB = pd.read_csv(wd+ilist)
 
     f_list = []
 
@@ -76,7 +76,7 @@ def parseFiles(ifile, ilist, wd=None):
         ifile is not None:
         raise Exception("Pass either file or argument")
     elif ilist is not None:
-        infiles = parseFileList(ilist)
+        infiles = parseFileList(ilist, wd)
     elif ifile is not None:
         infiles = ifile.split(' ')
     else:
