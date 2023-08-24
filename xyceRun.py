@@ -52,6 +52,8 @@ class xyceSimulator:
 
         for f in files:
             xyce_run_file = (xyce_run+f).replace('  ', ' ').split(' ')
+            print('---------------------------------')
+            print("run Xyce: " + xyce_run_file)
             subprocess.run(xyce_run_file)
 
 def parseFileList(ilist, wd):
