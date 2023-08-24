@@ -107,7 +107,7 @@ if __name__ == "__main__":
     config_file = setConfig(args.config)
     sim = xyceSimulator(config_file)
 
-    infiles = parseFiles(args.ifile, args.ilist, args.wd)
+    infiles = parseFiles(args.ifile, args.ilist[0], args.wd)
 
     if(args.debug == None):
         sim.run(infiles)
