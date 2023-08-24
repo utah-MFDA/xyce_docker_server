@@ -82,3 +82,5 @@ def test_import_libraries():
 
     print(sim.xyce_libraries)
 
+    print(sim.genPluginStr())
+

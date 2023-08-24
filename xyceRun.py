@@ -36,6 +36,9 @@ class xyceSimulator:
 
     def getPlugins(self):
         return self.xyce_libraries
+    
+    def genPluginStr(self):
+        return ','.join(self.xyce_libraries) 
 
     def set_xyce_command(self, command):
         self.xyce_command = command
@@ -43,9 +46,7 @@ class xyceSimulator:
     def run(self, files):
         
         # generate library string
-        xyce_lib_str = ''
-        for l in self.xyce_libraries:
-            pass
+        xyce_lib_str = self.genPluginStr() 
 
         xyce_run = self.xyce_command+' --plugin '+xyce_lib_str+' '
 
