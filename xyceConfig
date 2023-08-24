@@ -5,5 +5,5 @@
 "library_files":
 ["/mfda_simulation/local/VerilogA/Elibrary/xyce_lib/hardware/libhardware.so",
 "/mfda_simulation/local/VerilogA/Elibrary/xyce_lib/pCells/libpCells.so",
-"/mfda_simulation/local/VerilogA/Elibrary/xyce_lib/std_lib/standardComponents.so"]
+"/mfda_simulation/local/VerilogA/Elibrary/xyce_lib/std_lib/libstdComponents.so"]
 }

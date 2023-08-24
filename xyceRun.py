@@ -48,7 +48,7 @@ class xyceSimulator:
         # generate library string
         xyce_lib_str = self.genPluginStr() 
 
-        xyce_run = self.xyce_command+' --plugin '+xyce_lib_str+' '
+        xyce_run = self.xyce_command+' -plugin '+xyce_lib_str+' '
 
         for f in files:
             xyce_run_file = (xyce_run+f)
