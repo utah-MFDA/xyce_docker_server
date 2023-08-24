@@ -90,9 +90,9 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--file', metavar="<files>", dest='file', type=str,
+    parser.add_argument('--file', metavar="<files>", dest='ifile', type=str,
                         help="list of files", nargs='*')
-    parser.add_argument('--list', metavar="<list_file>", dest='list', type=str,
+    parser.add_argument('--list', metavar="<list_file>", dest='ilist', type=str,
                         help="list of files", nargs=1)
     parser.add_argument('--workdir', metavar='<working_dir>', dest='wd', type=str,
                         help="simulation working directory", default=None)
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     config_file = setConfig(args.config)
     sim = xyceSimulator(config_file)
 
-    infiles = parseFiles(args.file, args.list, args.wd)
+    infiles = parseFiles(args.ifile, args.ilist, args.wd)
 
     if(args.debug == None):
         sim.run(infiles)
