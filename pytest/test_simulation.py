@@ -68,3 +68,17 @@ def test_parse_files_with_wd():
     assert outFileList[0] == "pytest/spiceFiles/smart_toilet_H2O.cir"
     assert outFileList[1] == "pytest/spiceFiles/smart_toilet_Sample.cir"
     assert outFileList[2] == "pytest/spiceFiles/smart_toilet_Tag.cir"
+
+def test_import_libraries():
+
+    import xyceRun
+
+    config_file = "xyceConfig"
+
+    sim = xyceRun.xyceSimulator(config_file)
+
+    print('\n---------')
+    print(sim.xyce_command)
+
+    print(sim.xyce_libraries)
+

@@ -19,6 +19,7 @@ class xyceSimulator:
 
         self.xyce_command = xyce_config["xyce_command"]
 
+        self.xyce_libraries = []
         self.loadPlugins(xyce_config["library_files"], fromFile=False)
 
     def loadPlugins(self, config, fromFile=True):
@@ -26,8 +27,15 @@ class xyceSimulator:
         if fromFile:
             with open(config, 'r') as f:
                 xyce_libs = json.load(f)["library_files"]
+        else:
+            xyce_libs = config
+            
+        self.xyce_libraries += xyce_libs
 
-        self.xyce_libraries = xyce_libs
+        pass
+
+    def getPlugins(self):
+        return self.xyce_libraries
 
     def set_xyce_command(self, command):
         self.xyce_command = command
