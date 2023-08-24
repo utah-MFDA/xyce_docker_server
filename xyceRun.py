@@ -46,7 +46,7 @@ class xyceSimulator:
             subprocess.run(xyce_run_file)
 
 def parseFileList(ilist, wd):
-    print("reading file: "+str(wd+ilist))e
+    print("reading file: "+str(wd+ilist))
 
     listDB = pd.read_csv(wd+ilist)
 
