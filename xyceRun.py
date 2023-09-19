@@ -116,7 +116,7 @@ def parseFiles(ifile, ilist, wd=None):
 if __name__ == "__main__":
     
     import os
-    configDefault     = os.getcwd()+"/xyceConfig"
+    configDefault     = "/mfda_simulation/xyce_docker_server/xyceConfig"
 
     parser = argparse.ArgumentParser()
 
