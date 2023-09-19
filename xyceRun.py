@@ -2,6 +2,7 @@
 import argparse
 import json
 import subprocess
+import os
 
 import pandas as pd
 #from . import xyceSimulator
@@ -43,6 +44,17 @@ class xyceSimulator:
     def set_xyce_command(self, command):
         self.xyce_command = command
 
+    def _hide_netlist_files(spice_dir):
+        for f in os.listdir(spice_dir):
+            if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".cir":
+                os.rename(spice_dir+'/cir_files/'+f)
+
+
+    def _move_results_files(spice_dir):
+        for f in os.listdir(spice_dir):
+            if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".prn":
+                os.rename(spice_dir+'/results/'+f)
+
     def run(self, files):
         
         # generate library string
@@ -56,6 +68,9 @@ class xyceSimulator:
             print("run Xyce: " + xyce_run_file)
             xyce_run_file = xyce_run_file.replace('  ', ' ').split(' ')
             subprocess.run(xyce_run_file)
+
+        # TODO test
+        self._move_results_files(os.path.dirname(files[0]))
 
 def parseFileList(ilist, wd):
     print("reading file: "+str(wd+ilist))
@@ -100,6 +115,9 @@ def parseFiles(ifile, ilist, wd=None):
 
 if __name__ == "__main__":
     
+    import os
+    configDefault     = os.getcwd()+"/xyceConfig"
+
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--file', metavar="<files>", dest='ifile', type=str,
@@ -110,7 +128,7 @@ if __name__ == "__main__":
                         help="simulation working directory", default=None)
 
     parser.add_argument('--config', metavar="<config>", dest='config', type=str,
-                        help="simulation configuration", nargs=1, default=None)
+                        help="simulation configuration", nargs=1, default=configDefault)
     
     parser.add_argument('--debug', dest='debug', default=None)
     
