@@ -66,8 +66,8 @@ class xyceSimulator:
             xyce_run_file = (xyce_run+f)
             print('---------------------------------')
             print("run Xyce: " + xyce_run_file)
-            xyce_run_file = xyce_run_file.replace('  ', ' ').split(' ')
-            subprocess.run(xyce_run_file)
+            xyce_run_file = ' '.join(xyce_run_file.split()).split(' ')
+            subprocess.run(xyce_run_file, shell=True)
 
         # TODO test
         self._move_results_files(os.path.dirname(files[0]))
