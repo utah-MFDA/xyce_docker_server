@@ -53,7 +53,7 @@ class xyceSimulator:
     def _move_results_files(self, spice_dir):
         for f in os.listdir(spice_dir):
             if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".prn":
-                r_file = os.path.isfile(os.path.join(spice_dir, f))
+                r_file = os.path.join(spice_dir, f)
                 os.rename(r_file, spice_dir+'/results/'+f)
 
     def run(self, files):
