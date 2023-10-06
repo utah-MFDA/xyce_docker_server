@@ -50,7 +50,7 @@ class xyceSimulator:
                 os.rename(spice_dir+'/cir_files/'+f)
 
 
-    def _move_results_files(spice_dir):
+    def _move_results_files(self, spice_dir):
         for f in os.listdir(spice_dir):
             if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".prn":
                 os.rename(spice_dir+'/results/'+f)
