@@ -54,7 +54,11 @@ class xyceSimulator:
         for f in os.listdir(spice_dir):
             if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".prn":
                 r_file = os.path.join(spice_dir, f)
-                os.rename(r_file, spice_dir+'/results/'+f)
+                r_dir  = spice_dir+'/results'
+                # check for directory
+                if not os.path.isdir(r_dir):
+                    os.mkdir(r_dir)
+                os.rename(r_file, r_dir+'/'+f)
 
     def run(self, files):
         
