@@ -72,6 +72,7 @@ class xyceSimulator:
             print('---------------------------------')
             print("run Xyce: " + xyce_run_file)
             xyce_run_file = ' '.join(xyce_run_file.split()).split(' ')
+            print(xyce_run_file)
             subprocess.run(xyce_run_file, shell=True)
 
         # TODO test
