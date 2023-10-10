@@ -3,5 +3,5 @@
 "xyce_command":
 "Xyce",
 "library_files":
-["/mfda_simulation/local/VerilogA/Elibrary/xyce_lib/Elibrary/libElibrary.so"]
+["/mfda_simulation/local/VerilogA/MFlibrary/xyce_lib/MFlibrary/libElibrary.so"]
 }
