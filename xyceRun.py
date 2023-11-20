@@ -68,7 +68,8 @@ class xyceSimulator:
             
             #load spicelist
             print(spList)
-            chem_ind = spList.index[spList['OutputFile']==f]
+            print(f)
+            chem_ind = spList.index[spList['OutputFile']==f.split("/")[-1]]
             print("chem ind:"+chem_ind)
             chem_name= spList['Chemical'].iloc[chem_ind]
             
