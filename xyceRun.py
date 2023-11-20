@@ -67,7 +67,9 @@ class xyceSimulator:
             result_temp = result_f+".temp"
             
             #load spicelist
+            print(spList)
             chem_ind = spList.index[spList['OutputFile']==f]
+            print("chem ind:"+chem_ind)
             chem_name= spList.loc['Chemical'].iloc[chem_ind]
             
             replacement_list = {}
