@@ -173,7 +173,7 @@ if __name__ == "__main__":
 
     infiles = parseFiles(args.ifile, args.ilist[0], args.wd)
     if args.ilist is not None:
-        spiceList = pd.read_csv(ilist)
+        spiceList = pd.read_csv(args.ilist[0])
     else:
         spiceList = None
 
