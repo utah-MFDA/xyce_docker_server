@@ -111,7 +111,7 @@ class xyceSimulator:
             subprocess.run(xyce_run_file)
         
         # TODO test
-        self._move_results_files(os.path.dirname(files[0]))
+        #self._move_results_files(os.path.dirname(files[0]))
 
 def parseFileList(ilist, wd):
     print("reading file: "+str(wd+ilist))
