@@ -70,7 +70,7 @@ class xyceSimulator:
             print(spList)
             chem_ind = spList.index[spList['OutputFile']==f]
             print("chem ind:"+chem_ind)
-            chem_name= spList.loc['Chemical'].iloc[chem_ind]
+            chem_name= spList['Chemical'].iloc[chem_ind]
             
             replacement_list = {}
             for key, value in json.load(node_list_f):
