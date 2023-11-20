@@ -188,5 +188,5 @@ if __name__ == "__main__":
         sim.run(infiles)
         if spiceList is not None:
             sim.replace_voltage_nodes(infiles, spiceList)
-        #sim._move_results_files(infiles[0])
+        sim._move_results_files(infiles[0])
 
