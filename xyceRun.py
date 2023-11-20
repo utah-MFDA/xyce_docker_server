@@ -52,8 +52,8 @@ class xyceSimulator:
 
     def _move_results_files(self, spice_dir):
         for f in os.listdir(spice_dir):
-            if os.path.isdir(spice_dir):
-                os.remove(spice_dir+'/results')
+            #if os.path.isdir(spice_dir):
+                #os.remove(spice_dir+'/results')
             if os.path.isfile(os.path.join(spice_dir, f)) and f[-4:]==".prn":
                 r_file = os.path.join(spice_dir, f)
                 r_dir  = spice_dir+'/results'
