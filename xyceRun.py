@@ -110,7 +110,7 @@ class xyceSimulator:
             print("run Xyce: " + xyce_run_file)
             xyce_run_file = ' '.join(xyce_run_file.split())
             print(xyce_run_file)
-            subprocess.run(xyce_run_file)
+            subprocess.run(xyce_run_file, shell=True)
         
         # TODO test
         #self._move_results_files(os.path.dirname(files[0]))
@@ -189,10 +189,13 @@ if __name__ == "__main__":
     else:
         spiceList = None
 
+    print("No results: "+str(args.no_result_dir))
+
     if(args.debug == None):
         sim.run(infiles)
         if spiceList is not None:
             sim.replace_voltage_nodes(infiles, spiceList)
         if not args.no_result_dir:
+            print("Move results to "+os.path.dirname(infiles[0])+'/')
             sim._move_results_files(os.path.dirname(infiles[0]))
 
