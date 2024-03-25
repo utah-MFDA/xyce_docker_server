@@ -159,8 +159,9 @@ def parseFiles(ifile, ilist, wd=None):
 if __name__ == "__main__":
     
     import os
-    configDefault     = "/mfda_simulation/xyce_docker_server/xyceConfig"
-
+    #configDefault     = "/mfda_simulation/xyce_docker_server/xyceConfig"
+    configDefault = os.path.dirname(os.path.normpath(os.path.realpath(__file__)))+"/xyceConfig"
+    
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--file', metavar="<files>", dest='ifile', type=str,
@@ -169,6 +170,8 @@ if __name__ == "__main__":
                         help="list of files", nargs=1)
     parser.add_argument('--workdir', metavar='<working_dir>', dest='wd', type=str,
                         help="simulation working directory", default=None)
+    parser.add_argument('--no_result_dir', dest='no_result_dir',
+                        help="simulation working directory", action='store_true')
 
     parser.add_argument('--config', metavar="<config>", dest='config', type=str,
                         help="simulation configuration", nargs=1, default=configDefault)
@@ -190,5 +193,6 @@ if __name__ == "__main__":
         sim.run(infiles)
         if spiceList is not None:
             sim.replace_voltage_nodes(infiles, spiceList)
-        sim._move_results_files(os.path.dirname(infiles[0]))
+        if not args.no_result_dir:
+            sim._move_results_files(os.path.dirname(infiles[0]))
 
