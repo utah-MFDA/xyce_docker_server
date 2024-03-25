@@ -1,7 +1,7 @@
 
 {
 "xyce_command":
-"/usr/local/xyce_dev/bin/Xyce",
+"/usr/local/bin/Xyce",
 "library_files":
-["/mfda_simulation/h.r.3.3_pdk/Components/verilogA_build/lib/libMFXyce.so"]
+["../h.r.3.3_pdk/Components/verilogA_build/lib/MFXyce.so"]
 }
