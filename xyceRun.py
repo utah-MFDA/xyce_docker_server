@@ -72,7 +72,8 @@ class xyceSimulator:
             #load spicelist
             print(spList)
             print(f.split("/")[-1])
-            chem_ind = spList.index[spList['OutputFile']==f.split("/")[-1]]
+            #chem_ind = spList.index[spList['OutputFile']==f.split("/")[-1]]
+            chem_ind = spList.index[spList['spice_file']==f.split("/")[-1]]
             print("chem ind:"+str(chem_ind))
             chem_name= list(spList.iloc[chem_ind]['Chemical'])[0]
             print(chem_name)
@@ -123,7 +124,8 @@ def parseFileList(ilist, wd):
     f_list = []
 
     for f in listDB.iterrows():
-        f_name = f[1]["OutputFile"]
+        #f_name = f[1]["OutputFile"]
+        f_name = f[1]["spice_file"]
         f_list.append(f_name)
 
     return f_list
