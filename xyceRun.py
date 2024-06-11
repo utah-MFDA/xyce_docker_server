@@ -155,8 +155,6 @@ def parseFiles(ifile, ilist, wd=None):
     else:
         raise Exception("No files passed")
 
-    infiles = [wd+f for f in infiles]
-
     return infiles
 
 if __name__ == "__main__":
