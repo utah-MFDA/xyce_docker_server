@@ -64,7 +64,7 @@ class xyceSimulator:
                 
     def replace_voltage_nodes(self, files, spList):
         for f in files:
-            node_list_f = f+".nodes"
+            node_list_f = f+".str.nodes"
             result_f    = f+".prn"
             #result_f    = "/".join(f.split("/").insert(-2, "results"))+".prn"
             result_temp = result_f+".temp"
@@ -73,7 +73,8 @@ class xyceSimulator:
             print(spList)
             print(f.split("/")[-1])
             #chem_ind = spList.index[spList['OutputFile']==f.split("/")[-1]]
-            chem_ind = spList.index[spList['spice_file']==f.split("/")[-1]]
+
+            chem_ind = spList.index[spList['spice_file']==f]
             print("chem ind:"+str(chem_ind))
             chem_name= list(spList.iloc[chem_ind]['Chemical'])[0]
             print(chem_name)
@@ -117,9 +118,9 @@ class xyceSimulator:
         #self._move_results_files(os.path.dirname(files[0]))
 
 def parseFileList(ilist, wd):
-    print("reading file: "+str(wd+ilist))
+    print("reading file: "+str(ilist))
 
-    listDB = pd.read_csv(wd+ilist)
+    listDB = pd.read_csv(ilist)
 
     f_list = []
 
@@ -187,7 +188,7 @@ if __name__ == "__main__":
 
     infiles = parseFiles(args.ifile, args.ilist[0], args.wd)
     if args.ilist is not None:
-        spiceList = pd.read_csv(args.wd+"/"+args.ilist[0])
+        spiceList = pd.read_csv(args.ilist[0])
     else:
         spiceList = None
 
